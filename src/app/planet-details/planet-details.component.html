@@ -1,0 +1,23 @@
+<div class="container">
+  <h4>Name: {{planet.name}}</h4>
+  <p>Rotation period: {{planet.rotation_period}}</p>
+  <p>Orbital period: {{planet.orbital_period}}</p>
+  <p>Diameter: {{planet.diameter}}</p>
+  <p>Climate: {{planet.climate}}</p>
+  <p>Gravity: {{planet.gravity}}</p>
+  <p>Terrain: {{planet.terrain}}</p>
+  <p>Surface water: {{planet.surface_water}}</p>
+  <p>Population: {{planet.population}}</p>
+  <div *ngIf="planet.residents.length">
+    <p>Residents:</p>
+    <ul *ngFor="let resident of planet.residents let i=index">
+      <li [routerLink]="[getRoute(resident)]" class="link tooltip">Resident {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  <div *ngIf="planet.films.length">
+    <p>Films:</p>
+    <ul *ngFor="let film of planet.films let i=index">
+      <li [routerLink]="[getRoute(film)]" class="link tooltip">Film {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+</div>

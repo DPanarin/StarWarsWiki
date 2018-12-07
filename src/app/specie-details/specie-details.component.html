@@ -1,0 +1,26 @@
+<div class="container">
+  <h4>Name: {{specie.name}}</h4>
+  <p>Classification: {{specie.classification}}</p>
+  <p>Designation: {{specie.designation}}</p>
+  <p>Average height: {{specie.average_height}}</p>
+  <p>Skin colors: {{specie.skin_colors}}</p>
+  <p>Hair colors: {{specie.hair_colors}}</p>
+  <p>Eye colors: {{specie.eye_colors}}</p>
+  <p>Average lifespan: {{specie.average_lifespan}}</p>
+  <div *ngIf="specie.homeworld">
+    <p [routerLink]="[getRoute(specie.homeworld)]" class="link tooltip">Homeworld: homeworld<span class="tooltiptext">Click to see more</span></p>
+  </div>
+  <p>Language: {{specie.language}}</p>
+  <div *ngIf="specie.people.length">
+    <p>People:</p>
+    <ul *ngFor="let people of specie.people let i=index">
+      <li [routerLink]="[getRoute(people)]" class="link tooltip">Person {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  <div *ngIf="specie.films.length">
+    <p>Films:</p>
+    <ul *ngFor="let film of specie.films let i=index">
+      <li [routerLink]="[getRoute(film)]" class="link tooltip">Film {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+</div>

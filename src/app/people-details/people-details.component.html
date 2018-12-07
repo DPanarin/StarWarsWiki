@@ -1,0 +1,43 @@
+<div class="container">
+  <h4>Name: {{person.name}}</h4>
+  <p>Height: {{person.height}}</p>
+  <p>Mass: {{person.mass}}</p>
+  <p>Hair color: {{person.hair_color}}</p>
+  <p>Skin color: {{person.skin_color}}</p>
+  <p>Eye color: {{person.eye_color}}</p>
+  <p>Birth year: {{person.birth_year}}</p>
+  <p>Gender: {{person.gender}}</p>
+
+  <div *ngIf="person.homeworld">
+    <p [routerLink]="[getRoute(person.homeworld)]" routerLinkActive="router-link-active" class="link tooltip">Homeworld: homeworld<span class="tooltiptext">Click to see more</span></p>
+  </div>
+
+  <div *ngIf="person.films.length">
+    <p>Films:</p>
+    <ul *ngFor="let film of person.films let i=index">
+      <li [routerLink]="[getRoute(film)]" class="link tooltip">Film {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+
+  <div *ngIf="person.species.length">
+    <p>Species: </p>
+    <ul *ngFor="let specie of person.species let i=index">
+      <li [routerLink]="[getRoute(specie)]" class="link tooltip">Specie {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+
+  <div *ngIf="person.vehicles.length">
+    <p>Vehicles:</p>
+    <ul *ngFor="let vehicle of person.vehicles let i=index">
+      <li [routerLink]="[getRoute(vehicle)]" class="link tooltip">Vehicle {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+
+  <div *ngIf="person.starships.length">
+    <p>Starships:</p>
+    <ul *ngFor="let starship of person.starships let i=index">
+      <li [routerLink]="[getRoute(starship)]" class="link tooltip">Starship {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+
+</div>

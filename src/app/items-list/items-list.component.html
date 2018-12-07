@@ -1,0 +1,13 @@
+<div class="items-list-container">
+  <h3 class="category">{{currentCategory}}</h3>
+  <ul *ngFor="let item of itemsList" class="itemsList">
+    <li *ngIf="item.title" [routerLink]="['/', currentCategory, item.id]" class="item">{{item.title}}</li>
+    <li *ngIf="item.name" [routerLink]="['/', currentCategory, item.id]" class="item">{{item.name}}</li>
+  </ul>
+</div>
+
+<div class="navigation">
+  <button [disabled]="prevDisabled" class="navButtonPrev" (click)="loadPrevious()">Prev</button>
+  <p class="page">{{currentPage}}</p>
+  <button [disabled]="nextDisabled" class="navButtonNext" (click)="loadNext()">Next</button>
+</div>

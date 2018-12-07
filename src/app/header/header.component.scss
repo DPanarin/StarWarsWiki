@@ -1,0 +1,130 @@
+.title {
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.back {
+  position: absolute;
+  top: 2%;
+  right: 0;
+  width: 90px;
+  height: 50px;
+  background: rgba(66, 134, 244,.7);
+  transition: 300ms;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+}
+
+.back-hide {
+  transform: translateX(90px);
+  width: 90px;
+  overflow: hidden;
+}
+
+.name {
+  color: #ffffff;
+  font-size: 16px;
+  font-size: 4vw;
+  text-decoration: none;
+  z-index: 2;
+  transition: 0.3s;
+  text-transform: uppercase;
+  overflow: hidden;
+  outline: 0;
+}
+.name:hover {
+  background-color: #4286f4;
+  cursor: pointer;
+}
+
+.form {
+  overflow: hidden;
+  position: static;
+  padding-left: 10px;
+  .searchField {
+    box-sizing: border-box;
+    width: 96%;
+    padding: auto;
+    border: 2px solid black;
+  }
+}
+
+.menu {
+  display: flex;
+  position: absolute;
+  top: 2%;
+  left: 100%;
+  width: 80px;
+  height: 50px;
+  background: rgba(66, 134, 244,.7);
+  cursor: pointer;
+  padding-left: 10px;
+  align-items: center;
+  z-index: 10;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: rgba(0,0,0,.8);
+  z-index: 1000;
+  transition: 0.3s ease-in-out;
+  .toggle {
+    padding: 0;
+    margin: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    a {
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+    a:hover {
+      background-color: #4286f4;
+      transition: 1s;
+      cursor: pointer;
+    }
+  }
+}
+
+.sidebar a {
+  //left: -500px;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.sidebar a {
+  list-style: none;
+  position: relative;
+  color: #ffffff;
+  font-size: 16px;
+  font-size: 4vw;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.width-0 {
+  width: 0;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+
+
+
+
+

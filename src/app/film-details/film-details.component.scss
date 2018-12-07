@@ -1,0 +1,106 @@
+.container {
+    box-sizing: border-box;
+    box-shadow: 0px 0px 27px 3px rgba(0,0,0,0.46);
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    padding-top: 40px;
+    transition: 0.5s;
+    .link {
+        cursor: pointer;
+        color: #4286f4;
+        text-decoration: underline;
+        z-index: 0;
+    }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: -30%;
+        left: 280%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: -4%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+        transform: rotate(90deg)
+    }
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+  
+  .star-wars {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 650px;
+    font-family: 'Pathway Gothic One', sans-serif;
+    background-image: linear-gradient(0deg, transparent, black 95%);
+    font-size: 500%;
+    font-weight: 600;
+    letter-spacing: 6px;
+    line-height: 150%;
+    perspective: 400px;
+    text-align: center;
+    overflow: hidden;
+    transition: height 2s;
+  }
+  .fade {
+    transition: 1s;
+  }
+  .crawl {
+    position: relative;
+    transform-origin: 50% 100%;
+    animation: crawl 18s linear;
+    z-index: 100;
+  }
+  
+  .crawl > .title {
+    font-size: 90%;
+    text-align: center;
+  }
+  
+  .crawl > .title h1 {
+    margin: 0 0 100px;
+    text-transform: uppercase;
+  }
+
+  .collapsedCrawls {
+    height: 0%;
+  }
+  
+  @keyframes crawl {
+      0% {
+      top: -100px;
+      transform: rotateX(20deg)  translateZ(0);
+    }
+      100% { 
+      top: -6000px;
+      transform: rotateX(25deg) translateZ(-2500px);
+    }
+  }

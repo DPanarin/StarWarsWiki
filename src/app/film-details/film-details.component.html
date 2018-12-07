@@ -1,0 +1,52 @@
+<div class="container">
+  <div *ngIf="!displayCrawls">
+    <h3>Episode: {{film.episode_id}}</h3>
+    <h4>{{film.title}}</h4>
+    <p>{{film.opening_crawl}}</p>
+  </div>
+  <div *ngIf="displayCrawls" class="fade"></div>
+
+  <section *ngIf="displayCrawls" class="star-wars">
+    <div class="crawl">
+      <div class="title">
+        <p>Episode: {{film.episode_id}}</p>
+        <h1>{{film.title}}</h1>
+      </div>
+      <p class="opening_crawl">{{film.opening_crawl}}</p>
+    </div>
+  </section>
+
+  <p>Director: {{film.director}}</p>
+  <p>Producer: {{film.producer}}</p>
+  <p>Release date: {{film.release_date}}</p>
+  <div *ngIf="film.characters.length">
+    <p>Characters: </p>
+    <ul *ngFor="let character of film.characters let i=index">
+      <li [routerLink]="[getRoute(character)]" class="link tooltip">Character {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  <div *ngIf="film.characters.length">
+    <p>Planets: </p>
+    <ul *ngFor="let planet of film.planets let i=index">
+      <li [routerLink]="[getRoute(planet)]" class="link tooltip">Planet {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  <div *ngIf="film.starships.length">
+    <p>Starships: </p>
+    <ul *ngFor="let starship of film.starships let i=index">
+      <li [routerLink]="[getRoute(starship)]" class="link tooltip">Starship {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  <div *ngIf="film.vehicles.length">
+    <p>Vehicles: </p>
+    <ul *ngFor="let vehicle of film.vehicles let i=index">
+      <li [routerLink]="[getRoute(vehicle)]" class="link tooltip">Vehicle {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  <div *ngIf="film.species.length">
+    <p>Species: </p>
+    <ul *ngFor="let specie of film.species let i=index">
+      <li [routerLink]="[getRoute(specie)]" class="link tooltip">Specie {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+</div>

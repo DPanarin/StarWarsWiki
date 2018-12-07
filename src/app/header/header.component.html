@@ -1,0 +1,50 @@
+<!--<div class="header">-->
+  <!--<div>Categories:</div>-->
+  <!--<div *ngFor="let category of categoriesNames" class="mainMenu">-->
+    <!--<button [routerLink]="['/', category]" routerLinkActive="active" class="categoryLink">{{category}}</button>-->
+  <!--</div>-->
+
+  <!--<form [formGroup]="form" (submit)="onSubmit(form)" class="form" novalidate>-->
+    <!--<input formControlName="name" type="text" placeholder="search" class="searchField">-->
+    <!--<select formControlName="category" value="category" id="select" class="select">-->
+      <!--<option value="">Choose category</option>-->
+      <!--<option *ngFor="let category of categoriesNames">{{category}}</option>-->
+    <!--</select>-->
+    <!--<button type="submit" [disabled]="form.invalid">Search</button>-->
+  <!--</form>-->
+<!--</div>-->
+
+
+
+<h1 class="title"><a [routerLink]="['/']"
+                     (click)="back()">Star Wars Wiki</a></h1>
+<div class="back"
+     [class.back-hide]="!showBackButton"
+     [routerLink]="['/']"
+     (click)="back()"> << Back to main</div>
+<div class="sidebar" [ngClass]="{'width-0':menuHided, 'width-30':!menuHided}">
+  <div class="name"
+       [routerLink]="['/']"
+       routerLinkActive="active"
+       (click)="back()">Categories: </div>
+  <form [formGroup]="form" (submit)="onSubmit(form)" class="form" novalidate>
+  <input formControlName="name" type="text" placeholder="search" class="searchField">
+  <!--<select formControlName="category" value="category" id="select" class="select">-->
+  <!--<option value="">Choose category</option>-->
+  <!--<option *ngFor="let category of categoriesNames">{{category}}</option>-->
+  <!--</select>-->
+  <!--<button type="submit" [disabled]="form.invalid">Search</button>-->
+  </form>
+  <div class="toggle">
+    <div class="menu" (click)="toggle()">&#9776; MENU</div>
+    <a *ngFor="let category of categoriesNames"
+       [routerLink]="['/', category]"
+       (click)="toggle()">{{category}}</a>
+    <!--<ul>-->
+      <!--<li *ngFor="let category of categoriesNames"-->
+          <!--[routerLink]="['/', category]"-->
+          <!--routerLinkActive="active"-->
+          <!--(click)="toggle()">{{category}}</li>-->
+    <!--</ul>-->
+  </div>
+</div>

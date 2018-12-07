@@ -1,0 +1,30 @@
+<div class="container">
+  <h4>Name: {{starship.name}}</h4>
+  <p>Model: {{starship.model}}</p>
+  <p>Manufacturer: {{starship.manufacturer}}</p>
+  <p>Cost in credits: {{starship.cost_in_credits}}</p>
+  <p>Length: {{starship.length}}</p>
+  <p>Max atmosphering speed: {{starship.max_atmosphering_speed}}</p>
+  <p>Crew: {{starship.crew}}</p>
+  <p>Passengers: {{starship.passengers}}</p>
+  <p>Cargo capacity: {{starship.cargo_capacity}}</p>
+  <p>Consumables: {{starship.consumables}}</p>
+  <p>Hyperdrive rating: {{starship.hyperdrive_rating}}</p>
+  <p>MGLT: {{starship.MGLT}}</p>
+  <p>Starship class: {{starship.starship_class}}</p>
+
+  <div *ngIf="starship.pilots.length">
+    <p>Pilots:</p>
+    <ul *ngFor="let pilot of starship.pilots let i=index">
+      <li [routerLink]="[getRoute(pilot)]" class="link tooltip">Pilot {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+  
+  <div *ngIf="starship.films.length">
+    <p>Films:</p>
+    <ul *ngFor="let film of starship.films let i=index">
+      <li [routerLink]="[getRoute(film)]" class="link tooltip">Film {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+  <h4>Name: {{vehicle.name}}</h4>
+  <p>Model: {{vehicle.model}}</p>
+  <p>Manufacturer: {{vehicle.manufacturer}}</p>
+  <p>Cost in credits: {{vehicle.cost_in_credits}}</p>
+  <p>Length: {{vehicle.length}}</p>
+  <p>Max atmosphering speed: {{vehicle.max_atmosphering_speed}}</p>
+  <p>Crew: {{vehicle.crew}}</p>
+  <p>Passengers: {{vehicle.passengers}}</p>
+  <p>Cargo capacity: {{vehicle.cargo_capacity}}</p>
+  <p>Consumables: {{vehicle.consumables}}</p>
+  <p>Vehicle class: {{vehicle.vehicle_class}}</p>
+
+  <div *ngIf="vehicle.pilots.length">
+    <p>Pilots:</p>
+    <ul *ngFor="let pilot of vehicle.pilots let i=index">
+      <li [routerLink]="[getRoute(pilot)]" class="link tooltip">Pilot {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+
+  <div *ngIf="vehicle.films.length">
+    <p>Films:</p>
+    <ul *ngFor="let film of vehicle.films let i=index">
+      <li [routerLink]="[getRoute(film)]" class="link tooltip">Film {{i+1}}<span class="tooltiptext">Click to see more</span></li>
+    </ul>
+  </div>
+</div>
