@@ -1,3 +1,12 @@
-<p>
-  peoples-list works!
-</p>
+<div class="items-list-container">
+  <h3 class="category">{{currentCategory}}</h3>
+  <ul *ngFor="let item of itemsList" class="itemsList">
+    <li class="item" [routerLink]="['/people', item.id]"><a [routerLink]="['/people', item.id]">{{item.name}}</a></li>
+  </ul>
+</div>
+
+<div class="navigation">
+  <button [disabled]="prevDisabled" class="navButtonPrev" (click)="loadPrevious()">Prev</button>
+  <p class="page">{{currentPage}}</p>
+  <button [disabled]="nextDisabled" class="navButtonNext" (click)="loadNext()">Next</button>
+</div>

@@ -1,3 +1,80 @@
-<p>
-  person-details works!
-</p>
+<div class="container">
+  <h4>Name: {{person.name}}</h4>
+  <p>Height: {{person.height}}</p>
+  <p>Mass: {{person.mass}}</p>
+  <p>Hair color: {{person.hair_color}}</p>
+  <p>Skin color: {{person.skin_color}}</p>
+  <p>Eye color: {{person.eye_color}}</p>
+  <p>Birth year: {{person.birth_year}}</p>
+  <p>Gender: {{person.gender}}</p>
+
+  <div *ngIf="person.homeworld">
+    <p [routerLink]="[getRoute(person.homeworld)]"
+       routerLinkActive="router-link-active"
+       class="link tooltip">
+      <a [routerLink]="[getRoute(person.homeworld)]">
+        Homeworld: homeworld
+      </a>
+      <span class="tooltiptext">
+        Click to see more
+      </span>
+    </p>
+  </div>
+
+  <div *ngIf="person.films.length">
+    <p>Films:</p>
+    <ul *ngFor="let film of person.films let i=index">
+      <li [routerLink]="[getRoute(film)]" class="link tooltip">
+        <a [routerLink]="[getRoute(film)]">
+          Film {{i+1}}
+        </a>
+        <span class="tooltiptext">
+          Click to see more
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="person.species.length">
+    <p>Species: </p>
+    <ul *ngFor="let specie of person.species let i=index">
+      <li [routerLink]="[getRoute(specie)]" class="link tooltip">
+        <a [routerLink]="[getRoute(specie)]">
+          Specie {{i+1}}
+        </a>
+        <span class="tooltiptext">
+          Click to see more
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="person.vehicles.length">
+    <p>Vehicles:</p>
+    <ul *ngFor="let vehicle of person.vehicles let i=index">
+      <li [routerLink]="[getRoute(vehicle)]" class="link tooltip">
+        <a [routerLink]="[getRoute(vehicle)]">
+          Vehicle {{i+1}}
+        </a>
+        <span class="tooltiptext">
+          Click to see more
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="person.starships.length">
+    <p>Starships:</p>
+    <ul *ngFor="let starship of person.starships let i=index">
+      <li [routerLink]="[getRoute(starship)]" class="link tooltip">
+        <a [routerLink]="[getRoute(starship)]">
+          Starship {{i+1}}
+        </a>
+        <span class="tooltiptext">
+          Click to see more
+        </span>
+      </li>
+    </ul>
+  </div>
+
+</div>

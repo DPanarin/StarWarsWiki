@@ -4,6 +4,9 @@
     text-decoration: none;
     color: inherit;
   }
+  a:hover {
+    text-shadow: 2px 2px rgba(0,0,0,0.46);
+  }
 }
 
 .back {
@@ -24,7 +27,7 @@
 
 .back-hide {
   transform: translateX(90px);
-  width: 90px;
+  width: 0px;
   overflow: hidden;
 }
 
@@ -38,16 +41,18 @@
   text-transform: uppercase;
   overflow: hidden;
   outline: 0;
-}
-.name:hover {
-  background-color: #4286f4;
-  cursor: pointer;
+
+  &:hover {
+    background-color: #4286f4;
+    cursor: pointer;
+  }
 }
 
 .form {
   overflow: hidden;
   position: static;
   padding-left: 10px;
+
   .searchField {
     box-sizing: border-box;
     width: 96%;

@@ -35,10 +35,8 @@ export class HeaderComponent implements OnInit {
     });
     this.router.events.pipe(
       filter(e => e instanceof RouterEvent)
-    ).subscribe(e => {
-      if (e.url.length > 1) {
-        this.showBackButton = true;
-      }
+    ).subscribe((e: RouterEvent) => {
+      this.showBackButton = e.url.length > 1;
     });
   }
 

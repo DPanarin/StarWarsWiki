@@ -21,20 +21,24 @@ import {CategoryListService} from './items-list/category-list.service';
 
 const routes: Routes = [
   {
-    path: ':category',
-    component: ItemsListComponent,
-    resolve: {
-      category: CategoryResolveService,
-      categoryList: CategoryListService
-    },
+    path: 'people',
+    loadChildren: './peoples/peoples.module#PeoplesModule'
   },
-  {
-    path: 'people/:person',
-    component: PeopleDetailsComponent,
-    resolve: {
-      person: PeopleDetailsResolveService
-    }
-  },
+  // {
+  //   path: ':category',
+  //   component: ItemsListComponent,
+  //   resolve: {
+  //     category: CategoryResolveService,
+  //     categoryList: CategoryListService
+  //   },
+  // },
+  // {
+  //   path: 'people/:person',
+  //   component: PeopleDetailsComponent,
+  //   resolve: {
+  //     person: PeopleDetailsResolveService
+  //   }
+  // },
   {
     path: 'films/:film',
     component: FilmDetailsComponent,

@@ -1,3 +1,7 @@
+# About
+
+Project based on The Star Wars API (https://swapi.co/).
+
 # StarWarsWiki
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.7.
