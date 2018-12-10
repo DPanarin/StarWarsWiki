@@ -1,10 +1,5 @@
-import { PeopleDetailsComponent } from './people-details/people-details.component';
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemsListComponent } from './items-list/items-list.component';
-import { CategoryResolveService } from './items-list/category-resolve.service';
-import { PeopleDetailsResolveService } from './people-details/people-details-resolve.service';
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { PlanetDetailsComponent } from './planet-details/planet-details.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
@@ -15,7 +10,7 @@ import { FilmDetailsResolveService } from './film-details/film-details-resolve.s
 import { SpecieDetailsResolveService } from './specie-details/specie-details-resolve.service';
 import { VehicleDetailsResolveService } from './vehicle-details/vehicle-details-resolve.service';
 import { StarshipDetailsResolveService } from './starship-details/starship-details-resolve.service';
-import {CategoryListService} from './items-list/category-list.service';
+import {ErrorComponent} from './error/error.component';
 
 
 
@@ -72,6 +67,15 @@ const routes: Routes = [
     component: SpecieDetailsComponent,
     resolve: {
       specie: SpecieDetailsResolveService
+    }
+  },
+  {
+    path: 'error',
+    component: ErrorComponent,
+    data: {
+      errorStatus: '',
+      errorDetails: '',
+      errorFrom: ''
     }
   }
 ];

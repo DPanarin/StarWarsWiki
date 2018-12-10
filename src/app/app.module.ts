@@ -13,6 +13,7 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { StarshipDetailsComponent } from './starship-details/starship-details.component';
 import { SpecieDetailsComponent } from './specie-details/specie-details.component';
 import { HeaderComponent } from './header/header.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeaderComponent } from './header/header.component';
     VehicleDetailsComponent,
     StarshipDetailsComponent,
     SpecieDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

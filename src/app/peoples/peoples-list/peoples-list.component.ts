@@ -13,8 +13,7 @@ export class PeoplesListComponent implements OnInit {
   nextPage: string;
   currentCategory: string;
   prevPage: string;
-  currentPage: string;
-  currentPageApiLink: string;
+  currentPage: any;
   nextDisabled = this.nextPage === null;
   prevDisabled = this.prevPage === null;
 

@@ -11,7 +11,7 @@ export class PersonDetailsComponent implements OnInit {
 
   person: PeopleInterface;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getPersonDetails();
@@ -19,6 +19,9 @@ export class PersonDetailsComponent implements OnInit {
 
   getPersonDetails() {
     this.route.data.subscribe(data => {
+      if (this.person === null) {
+        this.router.navigate(['/error']);
+      }
       this.person = data.person;
     });
   }

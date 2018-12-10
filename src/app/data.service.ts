@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ItemsListInterface } from './items-list-interface';
+import {errorObject} from 'rxjs/internal-compatibility';
+import {catchError} from 'rxjs/operators';
+import {of, throwError} from 'rxjs';
+import {Router} from '@angular/router';
 
 
 @Injectable({
@@ -18,11 +22,15 @@ export class DataService {
     species: 'species'
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
 
   getItem(itemUrl: string) {
-    return this.httpClient.get(this.baseEndPoint + itemUrl);
+    return this.httpClient.get(this.baseEndPoint + itemUrl)
+      .pipe(catchError(err => {
+        console.log(err.error.detail, err.status);
+        return throwError(err);
+      }));
   }
 
   getCategories() {
