@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
@@ -14,6 +14,8 @@ import { StarshipDetailsComponent } from './starship-details/starship-details.co
 import { SpecieDetailsComponent } from './specie-details/specie-details.component';
 import { HeaderComponent } from './header/header.component';
 import { ErrorComponent } from './error/error.component';
+import { LoaderComponent } from './loader/loader.component';
+import {HttpInterceptorService} from './http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ErrorComponent } from './error/error.component';
     StarshipDetailsComponent,
     SpecieDetailsComponent,
     HeaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,13 @@ import { ErrorComponent } from './error/error.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

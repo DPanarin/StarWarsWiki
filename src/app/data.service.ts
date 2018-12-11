@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ItemsListInterface } from './items-list-interface';
-import {errorObject} from 'rxjs/internal-compatibility';
 import {catchError} from 'rxjs/operators';
-import {of, throwError} from 'rxjs';
+import {of} from 'rxjs';
 import {Router} from '@angular/router';
 
 
@@ -22,27 +21,25 @@ export class DataService {
     species: 'species'
   };
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient) { }
 
-
-  getItem(itemUrl: string) {
-    return this.httpClient.get(this.baseEndPoint + itemUrl)
-      .pipe(catchError(err => {
-        console.log(err.error.detail, err.status);
-        return throwError(err);
-      }));
-  }
 
   getCategories() {
     return this.httpClient.get(this.baseEndPoint);
   }
 
-  getCategory(category: string) {
-    return this.httpClient.get(this.baseEndPoint + category + '/');
+  getItem(itemUrl: string) {
+    return this.httpClient.get(this.baseEndPoint + itemUrl)
+      .pipe(catchError(err => of (err)));
   }
 
   getPage(page: string) {
-    return this.httpClient.get<ItemsListInterface<any>>(page);
+    return this.httpClient.get<ItemsListInterface<any>>(page)
+      .pipe(catchError(err => of (err)));
+  }
+
+  getCategory(category: string) {
+    return this.httpClient.get(this.baseEndPoint + category + '/');
   }
 
   // getPeoples() {

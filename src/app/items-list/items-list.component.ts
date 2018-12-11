@@ -1,8 +1,6 @@
-import { DataService } from './../data.service';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { DataService } from '../data.service';
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ItemsListInterface} from '../items-list-interface';
-import {log} from 'util';
 
 @Component({
   selector: 'app-items-list',
@@ -15,7 +13,7 @@ export class ItemsListComponent implements OnInit {
   nextPage: string;
   currentCategory: string;
   prevPage: string;
-  currentPage: string;
+  currentPage: any;
   currentPageApiLink: string;
   nextDisabled = this.nextPage === null;
   prevDisabled = this.prevPage === null;

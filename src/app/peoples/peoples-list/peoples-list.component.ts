@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataService} from '../../data.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-peoples-list',
@@ -28,6 +29,14 @@ export class PeoplesListComponent implements OnInit {
 
   routerChange() {
     this.route.data.subscribe((data) => {
+      if (data.categoryList instanceof HttpErrorResponse) {
+        this.router.navigate(['/error'], {
+          queryParams:
+            {
+              errorFrom: 'people'
+            }
+        });
+      }
       this.currentCategory = data.category;
       this.setData(data.categoryList.results, data.categoryList.next, data.categoryList.previous);
       this.currentPage = this.route.snapshot.queryParamMap.get('page') || '1';

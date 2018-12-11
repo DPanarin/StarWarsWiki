@@ -8,13 +8,12 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ErrorComponent implements OnInit {
 
-  code: string;
-  errorDetails: string;
+  backPath: string;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.data);
+    this.backPath = this.route.snapshot.queryParamMap.get('errorFrom');
   }
 
 }

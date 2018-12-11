@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PeopleInterface} from '../../people-interface';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-person-details',
@@ -19,10 +20,15 @@ export class PersonDetailsComponent implements OnInit {
 
   getPersonDetails() {
     this.route.data.subscribe(data => {
-      if (this.person === null) {
-        this.router.navigate(['/error']);
-      }
       this.person = data.person;
+      if (this.person instanceof HttpErrorResponse) {
+        this.router.navigate(['/error'], {
+          queryParams:
+            {
+              errorFrom: 'people'
+            }
+        });
+      }
     });
   }
   getRoute(apiUrl: string): string {

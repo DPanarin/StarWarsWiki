@@ -13,7 +13,6 @@ import { StarshipDetailsResolveService } from './starship-details/starship-detai
 import {ErrorComponent} from './error/error.component';
 
 
-
 const routes: Routes = [
   {
     path: 'people',
@@ -77,7 +76,11 @@ const routes: Routes = [
       errorDetails: '',
       errorFrom: ''
     }
-  }
+  },
+  // {
+  //   path: '**',
+  //   component: ErrorComponent,
+  // }
 ];
 
 @NgModule({
