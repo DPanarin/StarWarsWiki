@@ -11,20 +11,24 @@ import { SpecieDetailsResolveService } from './specie-details/specie-details-res
 import { VehicleDetailsResolveService } from './vehicle-details/vehicle-details-resolve.service';
 import { StarshipDetailsResolveService } from './starship-details/starship-details-resolve.service';
 import {ErrorComponent} from './error/error.component';
+import {ItemsListComponent} from './items-list/items-list.component';
+import {CategoryResolveService} from './items-list/category-resolve.service';
+import {CategoryListService} from './items-list/category-list.service';
 
 
 const routes: Routes = [
   {
+    path: 'search/:category/:query',
+    pathMatch: 'full',
+    component: ItemsListComponent,
+    resolve: {
+      categoryList: CategoryListService
+    }
+  },
+  {
     path: 'people',
     loadChildren: './peoples/peoples.module#PeoplesModule'
   },
-  // {
-  //   path: ':category',
-  //   component: ItemsListComponent,
-  //   resolve: {
-  //     category: CategoryResolveService,
-  //     categoryList: CategoryListService
-  //   },
   // },
   // {
   //   path: 'people/:person',
@@ -77,10 +81,11 @@ const routes: Routes = [
       errorFrom: ''
     }
   },
-  // {
-  //   path: '**',
-  //   component: ErrorComponent,
-  // }
+  { path: '',   redirectTo: '', pathMatch: 'full' },
+  {
+    path: '**',
+    component: ErrorComponent,
+  }
 ];
 
 @NgModule({

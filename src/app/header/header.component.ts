@@ -49,7 +49,9 @@ export class HeaderComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    console.log(form.value);
+    const category = this.form.value.category;
+    const name = this.form.value.name;
+    this.form.reset();
+    this.router.navigate(['search', category, name]);
   }
-
 }

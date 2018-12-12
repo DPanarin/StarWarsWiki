@@ -29,11 +29,11 @@
        (click)="back()">Categories: </div>
   <form [formGroup]="form" (submit)="onSubmit(form)" class="form" novalidate>
   <input formControlName="name" type="text" placeholder="search" class="searchField">
-  <!--<select formControlName="category" value="category" id="select" class="select">-->
-  <!--<option value="">Choose category</option>-->
-  <!--<option *ngFor="let category of categoriesNames">{{category}}</option>-->
-  <!--</select>-->
-  <!--<button type="submit" [disabled]="form.invalid">Search</button>-->
+  <select formControlName="category" value="category" id="select" class="select">
+  <option value="">Choose category</option>
+  <option *ngFor="let category of categoriesNames">{{category}}</option>
+  </select>
+  <button type="submit" [disabled]="form.invalid" class="submit">Search</button>
   </form>
   <div class="toggle">
     <div class="menu" (click)="toggle()">&#9776; MENU</div>

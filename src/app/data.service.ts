@@ -38,6 +38,11 @@ export class DataService {
       .pipe(catchError(err => of (err)));
   }
 
+  searchItem(item: string, category: string) {
+    return this.httpClient.get(this.baseEndPoint + category + '/?search=' + item)
+      .pipe(catchError(err => of (err)));
+  }
+
   getCategory(category: string) {
     return this.httpClient.get(this.baseEndPoint + category + '/');
   }

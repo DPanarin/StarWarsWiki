@@ -46,7 +46,6 @@ export class ItemsListComponent implements OnInit {
       this.setData(data.categoryList.results, data.categoryList.next, data.categoryList.previous);
       this.currentPage = this.route.snapshot.queryParamMap.get('page') || '1';
       this.setPageToRoute(this.currentPage);
-      // localStorage.setItem('current-page', this.getCurrentApiLink());
     });
   }
 

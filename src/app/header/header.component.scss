@@ -51,13 +51,16 @@
 .form {
   overflow: hidden;
   position: static;
-  padding-left: 10px;
-
-  .searchField {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  .searchField .select .submit {
     box-sizing: border-box;
-    width: 96%;
-    padding: auto;
+    //padding: auto;
     border: 2px solid black;
+  }
+  .select .submit:hover {
+    background-color: #4286f4;
   }
 }
 
