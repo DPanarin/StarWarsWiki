@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoaderNotifyService {
 
-  private requestFinished: BehaviorSubject<boolean>;
+  private pending: string[] = [];
+  private requestFinished = new Subject<boolean>();
 
-  constructor() {
-    this.requestFinished = new BehaviorSubject(true);
+  setRequestStatus(id: string, status: boolean) {
+    if (status === false) {
+      this.pending.push(id);
+    } else {
+      const index = this.pending.indexOf(id);
+
+      if (index !== -1) {
+        this.pending.splice(index, 1);
+      }
+    }
+
+    this.requestFinished.next(this.pending.length === 0);
   }
 
-  setRequestStatus(status: boolean) {
-    this.requestFinished.next(status);
-  }
-
-  getRequestStatus(): Observable<boolean> {
+  getRequestStatus()  {
     return this.requestFinished.asObservable();
   }
 }

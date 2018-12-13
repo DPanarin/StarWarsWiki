@@ -13,7 +13,7 @@
        routerLinkActive="router-link-active"
        class="link tooltip">
       <a [routerLink]="[getRoute(person.homeworld)]">
-        Homeworld: homeworld
+        Homeworld: homevorld
       </a>
       <span class="tooltiptext">
         Click to see more
@@ -26,7 +26,7 @@
     <ul *ngFor="let film of person.films let i=index">
       <li [routerLink]="[getRoute(film)]" class="link tooltip">
         <a [routerLink]="[getRoute(film)]">
-          Film {{i+1}}
+          {{getItemName('filmsData', person.films.indexOf(film))}}
         </a>
         <span class="tooltiptext">
           Click to see more
@@ -40,7 +40,7 @@
     <ul *ngFor="let specie of person.species let i=index">
       <li [routerLink]="[getRoute(specie)]" class="link tooltip">
         <a [routerLink]="[getRoute(specie)]">
-          Specie {{i+1}}
+          {{getItemName('speciesData', person.species.indexOf(specie))}}
         </a>
         <span class="tooltiptext">
           Click to see more
@@ -54,7 +54,7 @@
     <ul *ngFor="let vehicle of person.vehicles let i=index">
       <li [routerLink]="[getRoute(vehicle)]" class="link tooltip">
         <a [routerLink]="[getRoute(vehicle)]">
-          Vehicle {{i+1}}
+          {{getItemName('vehiclesData', person.vehicles.indexOf(vehicle))}}
         </a>
         <span class="tooltiptext">
           Click to see more
@@ -68,7 +68,7 @@
     <ul *ngFor="let starship of person.starships let i=index">
       <li [routerLink]="[getRoute(starship)]" class="link tooltip">
         <a [routerLink]="[getRoute(starship)]">
-          Starship {{i+1}}
+          {{getItemName('starshipsData', person.starships.indexOf(starship))}}
         </a>
         <span class="tooltiptext">
           Click to see more

@@ -11,26 +11,13 @@ export class ItemsListComponent implements OnInit {
 
   itemsList: any[];
   nextPage: string;
-  currentCategory: string;
+  currentCategory = this.route.snapshot.paramMap.get('category');
   prevPage: string;
   currentPage: any;
   currentPageApiLink: string;
   nextDisabled = this.nextPage === null;
   prevDisabled = this.prevPage === null;
 
-  // @HostListener('document:mousewheel')
-  // loadNextPage() {
-  //   if (this.nextPage) {
-  //     this.dataService.getPage(this.nextPage).subscribe((data) => {
-  //       this.nextPage = data.next;
-  //       data.results.forEach(result => {
-  //         result.id = this.getItemId(result);
-  //         this.cloneList.push(result);
-  //       });
-  //     });
-  //     this.nextPage = null;
-  //   }
-  // }
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -41,8 +28,9 @@ export class ItemsListComponent implements OnInit {
   }
 
   routerChange() {
+    this.currentCategory = this.route.snapshot.paramMap.get('category');
     this.route.data.subscribe((data) => {
-      this.currentCategory = data.category;
+      // this.currentCategory = data.category;
       this.setData(data.categoryList.results, data.categoryList.next, data.categoryList.previous);
       this.currentPage = this.route.snapshot.queryParamMap.get('page') || '1';
       this.setPageToRoute(this.currentPage);

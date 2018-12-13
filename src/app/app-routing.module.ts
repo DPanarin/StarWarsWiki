@@ -14,6 +14,7 @@ import {ErrorComponent} from './error/error.component';
 import {ItemsListComponent} from './items-list/items-list.component';
 import {CategoryResolveService} from './items-list/category-resolve.service';
 import {CategoryListService} from './items-list/category-list.service';
+import {AppComponent} from './app.component';
 
 
 const routes: Routes = [
@@ -81,7 +82,10 @@ const routes: Routes = [
       errorFrom: ''
     }
   },
-  { path: '',   redirectTo: '', pathMatch: 'full' },
+  { path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
   {
     path: '**',
     component: ErrorComponent,

@@ -28,8 +28,13 @@ export class DataService {
     return this.httpClient.get(this.baseEndPoint);
   }
 
-  getItem(itemUrl: string) {
-    return this.httpClient.get(this.baseEndPoint + itemUrl)
+  getItem<T = any>(itemUrl: string) {
+    return this.httpClient.get<T>(this.baseEndPoint + itemUrl)
+      .pipe(catchError(err => of (err)));
+  }
+
+  getItemFor(itemUrl: string) {
+    return this.httpClient.get(itemUrl)
       .pipe(catchError(err => of (err)));
   }
 

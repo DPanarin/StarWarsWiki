@@ -8,14 +8,14 @@ import {LoaderNotifyService} from './loader-notify.service';
 })
 export class AppComponent implements OnInit {
   title = 'StarWarsWiki';
-  showLoader: boolean;
+  showLoader = true;
 
   constructor(private requestStatus: LoaderNotifyService) {
-    this.requestStatus.getRequestStatus().subscribe((status: boolean) => {
-      this.showLoader = !status;
-    });
   }
 
   ngOnInit() {
+    this.requestStatus.getRequestStatus().subscribe(status => {
+      this.showLoader = !status;
+    });
   }
 }

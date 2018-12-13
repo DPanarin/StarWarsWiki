@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PeopleInterface} from '../../people-interface';
 import {HttpErrorResponse} from '@angular/common/http';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-person-details',
@@ -12,7 +13,7 @@ export class PersonDetailsComponent implements OnInit {
 
   person: PeopleInterface;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.getPersonDetails();
@@ -31,6 +32,10 @@ export class PersonDetailsComponent implements OnInit {
       }
     });
   }
+  getItemName(key: string, index: number) {
+    return this.person[key][index]['name'] || this.person[key][index]['title'];
+  }
+
   getRoute(apiUrl: string): string {
     const segments = apiUrl.split('/');
     const length = segments.length;
